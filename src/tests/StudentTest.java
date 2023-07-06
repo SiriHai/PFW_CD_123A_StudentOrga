@@ -14,6 +14,18 @@ public class StudentTest {
 
         System.out.println("Name: " + student1.getName() + " Id: " + student1.getId());
         System.out.println(student2.info());
+
+        // Einlesen von der Konsole
+        Student student3 = new Student();
+        System.out.print("Name: ");
+        String name = System.console().readLine();
+        student3.setName(name);
+
+        System.out.print("Id: ");
+        int id3 = Integer.parseInt(System.console().readLine());
+        student3.setId(id3);
+
+        System.out.println(student3.info());
     }
-    
+
 }
