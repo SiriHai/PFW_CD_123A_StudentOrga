@@ -10,6 +10,17 @@ package model;
     private String name;
     private int id;
 
+    public Student(){}
+
+    public Student(String name){
+        this.name = name;
+    }
+
+    public Student(String name, int id){
+        this(name);
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }
@@ -24,6 +35,11 @@ package model;
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    // Überladen einer Methode
+    public void setName(String firstName, String lastName){
+        this.name = firstName + " " + lastName;
     }
 
     public String info(){
