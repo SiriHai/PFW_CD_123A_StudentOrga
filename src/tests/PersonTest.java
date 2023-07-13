@@ -19,7 +19,7 @@ public class PersonTest {
         System.out.println(person1.info());
 
         Person person2 = new Person();
-        person2.newInputDialogue();
+        Person.newInputDialogue(person2);
         System.out.println("\nNeue Person: " + person2.getLastName() + ", " + person2.getFirstName() + " " + person2.getBirth() + "\n");
 
     }

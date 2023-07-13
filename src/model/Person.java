@@ -27,6 +27,16 @@ public class Person {
         birth = Integer.parseInt(System.console().readLine());
     }
 
+    // statische Methode
+    public static void newInputDialogue(Person person) {
+        System.out.print("lastname: ");
+        person.lastName = System.console().readLine();
+        System.out.print("firstname: ");
+        person.firstName = System.console().readLine();
+        System.out.print("birth: ");
+        person.birth = Integer.parseInt(System.console().readLine());
+    }
+
     public String getFirstName() {
         return firstName;
     }
