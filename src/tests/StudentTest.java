@@ -13,14 +13,16 @@ public class StudentTest {
         Student student1 = new Student();
         // student1.setName("Nathan Evans");
         student1.setName("Nathan", "Evans");
-        student1.setId(1001);
+        //student1.setId(1001);
 
         Student student2 = new Student();
         student2.setName("Miksu Macloud");
-        student2.setId(1002);
+        //student2.setId(1002);
 
         System.out.println("Name: " + student1.getName() + " Id: " + student1.getId());
         System.out.println(student2.info());
+
+        Student.setNextId(9999);
 
         // Einlesen von der Konsole,
         Student student3 = new Student();
@@ -33,11 +35,10 @@ public class StudentTest {
         // student3.setId(id3);
 
         student3.setName("Helene", "Fischer");
-        student3.setId(1003);
         System.out.println(student3.info());
 
         // Konstruktor
-        Student student4 = new Student("Friday", 1003);
+        Student student4 = new Student("Friday");
         System.out.println(student4.info());
 
         System.out.println("Es wurden " + Student.getAnzahl() + " Studenten angelegt.");

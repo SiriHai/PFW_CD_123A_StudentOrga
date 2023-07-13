@@ -7,12 +7,30 @@ package model;
  */
 
 public class Student {
+    private static final int FIRST_ID = 1001;
+    private static final int LAST_ID = 9999;
+
     private static int anzahl;
+    private static int nextId = FIRST_ID;
 
     private String name;
     private int id;
 
+    public static int getNextId() {
+        return nextId;
+    }
+
+    public static void setNextId(int nextId) {
+        Student.nextId = nextId;
+    }
+
     public Student() {
+        if (nextId <= LAST_ID)
+            id = nextId++;
+        else{
+            System.out.println("Overflow");
+            id = 0;
+        }
         anzahl++;
     }
 
@@ -22,8 +40,9 @@ public class Student {
     }
 
     public Student(String name, int id) {
-        this(name);
+        this.name = name;
         this.id = id;
+        anzahl++;
     }
 
     public static int getAnzahl() {
