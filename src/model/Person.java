@@ -2,7 +2,7 @@ package model;
 
 public class Person {
     private String firstName, lastName;
-    int birth;
+    private int birth;
 
     public Person() {
     }

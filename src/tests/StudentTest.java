@@ -40,6 +40,8 @@ public class StudentTest {
         Student student4 = new Student("Friday", 1003);
         System.out.println(student4.info());
 
+        System.out.println("Es wurden " + Student.getAnzahl() + " Studenten angelegt.");
+
     }
 
 }

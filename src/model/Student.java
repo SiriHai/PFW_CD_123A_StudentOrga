@@ -6,19 +6,32 @@ package model;
  * @author Iris Hanheide
  */
 
- public class Student {
+public class Student {
+    private static int anzahl;
+
     private String name;
     private int id;
 
-    public Student(){}
+    public Student() {
+        anzahl++;
+    }
 
-    public Student(String name){
+    public Student(String name) {
+        this();
         this.name = name;
     }
 
-    public Student(String name, int id){
+    public Student(String name, int id) {
         this(name);
         this.id = id;
+    }
+
+    public static int getAnzahl() {
+        return anzahl;
+    }
+
+    public static void setAnzahl(int anzahl) {
+        Student.anzahl = anzahl;
     }
 
     public int getId() {
@@ -38,11 +51,11 @@ package model;
     }
 
     // Überladen einer Methode
-    public void setName(String firstName, String lastName){
+    public void setName(String firstName, String lastName) {
         this.name = firstName + " " + lastName;
     }
 
-    public String info(){
+    public String info() {
         return "Name: " + name + " Id: " + id;
     }
 
@@ -51,11 +64,11 @@ package model;
         // den Zugriff auf Attribute die "Punktnotation" verwendet werden,
         // obwohl die Attribute den Modifizierer "private" haben.
         Student student1 = new Student();
-        student1.name="Nathan Evans";
-        student1.id=1001;
+        student1.name = "Nathan Evans";
+        student1.id = 1001;
 
         Student student2 = new Student();
-        student2.name ="Miksu Macloud";
+        student2.name = "Miksu Macloud";
         student2.id = 1002;
 
         System.out.println("Name: " + student1.name + " Id: " + student1.id);
