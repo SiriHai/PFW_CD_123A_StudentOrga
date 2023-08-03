@@ -3,6 +3,8 @@ package model;
 public class Person {
     private String firstName, lastName;
     private int birth;
+    // Aufgabe 1
+    private String city;
 
     public Person() {
     }
@@ -15,6 +17,11 @@ public class Person {
     public Person(String firstName, String lastName, int birth) {
         this(firstName, lastName);
         this.birth = birth;
+    }
+
+     public Person(String firstName, String lastName, int birth, String city) {
+        this(firstName, lastName, birth);
+        this.city = city;
     }
 
     // neue Methode Aufgabe 1
@@ -70,8 +77,16 @@ public class Person {
         this.lastName = lastName;
     }
 
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
     public String info() {
-        return "firstname: " + firstName + " lastName: " + lastName + " birth: " + birth;
+        return "firstname: " + firstName + " lastName: " + lastName + " birth: " + birth + " city " + city;
     }
 
 }

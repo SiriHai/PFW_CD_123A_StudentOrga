@@ -13,16 +13,16 @@ public class LecturerTest {
         System.out.println(lect2.info());
 
         Lecturer lect3 = new Lecturer();
-        lect3.newInputDialogue();
+        // lect3.newInputDialogue();
         System.out.println(lect3.info());
 
-        Lecturer.newInputDialogue(lect3);
+        //Lecturer.newInputDialogue(lect3);
         System.out.println(lect3.info());
 
-        Person lect4 = new Lecturer("Volkert", "Stefan", 1972);
+        Person lect4 = new Lecturer("Volkert", "Stefan", 1972, "Lüttin");
         System.out.println(lect4.info());
 
-        Person person4 = new Person("Volkert", "Stefan", 1972);
+        Person person4 = new Person("Volkert", "Stefan", 1972, "Lüttin");
         System.out.println(person4.info());
     }
 

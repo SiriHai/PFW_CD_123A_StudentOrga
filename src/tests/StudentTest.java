@@ -45,6 +45,9 @@ public class StudentTest {
         System.out.println(((Student)student5).getId());
         System.out.println(student5.info());
 
+        // City und Subject
+        Student student6 = new Student ("Phil", "Collins", 1951, "London", "WI");
+        System.out.println(student6.info());
 
         System.out.println("Es wurden " + Student.getAnzahl() + " Studenten angelegt.");
 

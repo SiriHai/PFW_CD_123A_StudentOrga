@@ -14,6 +14,7 @@ public class Student extends Person {
     private static int nextId = FIRST_ID;
 
     private int id;
+    private String subject;
 
     public static int getNextId() {
         return nextId;
@@ -36,6 +37,18 @@ public class Student extends Person {
     public Student(String firstName, String lastName) {
         this();
         super.setName(firstName, lastName);
+    }
+
+    // Aufgabe 1
+    public Student(String firstName, String lastName, int birth, String city) {
+        this(firstName, lastName);
+        super.setBirth(birth);
+        super.setCity(city);
+    }
+
+    public Student(String firstName, String lastName, int birth, String city, String subject) {
+        this(firstName, lastName, birth, city);
+        super.setCity(subject);
     }
 
     public Student(String firstName, String lastName, int birth, int id) {
@@ -61,8 +74,30 @@ public class Student extends Person {
         this.id = id;
     }
 
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    @Override
+    public void newInputDialogue(){
+        super.newInputDialogue();
+        System.out.print("subject: ");
+        subject = System.console().readLine();
+    }
+
+    // Die Methode wird überladen
+    public static void newInputDialogue(Student student){
+        Person.newInputDialogue(student);
+        System.out.print("subject: ");
+        student.subject = System.console().readLine();
+    }
+
     public String info() {
-        return "Student Id: " + id + " " + super.info();
+        return "Student Id: " + id + " subject " + subject + " " + super.info();
     }
 
     public static void main(String[] args) throws Exception {
