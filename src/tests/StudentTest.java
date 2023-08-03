@@ -1,5 +1,6 @@
 package tests;
 
+import model.Person;
 import model.Student;
 
 /**
@@ -16,7 +17,7 @@ public class StudentTest {
         //student1.setId(1001);
 
         Student student2 = new Student();
-        student2.setName("Miksu Macloud");
+        student2.setName("Miksu", "Macloud");
         //student2.setId(1002);
 
         System.out.println("Name: " + student1.getName() + " Id: " + student1.getId());
@@ -26,20 +27,24 @@ public class StudentTest {
 
         // Einlesen von der Konsole,
         Student student3 = new Student();
-        // System.out.print("Name: ");
-        // String name = System.console().readLine();
-        // student3.setName(name);
+        student3.newInputDialogue();
+        System.out.println(student3.info());
 
-        // System.out.print("Id: ");
-        // int id3 = Integer.parseInt(System.console().readLine());
-        // student3.setId(id3);
+        Student.newInputDialogue(student3);
+        System.out.println(student3.info());
 
         student3.setName("Helene", "Fischer");
         System.out.println(student3.info());
 
         // Konstruktor
-        Student student4 = new Student("Friday");
+        Student student4 = new Student();
+        student4.setLastName("Friday");
         System.out.println(student4.info());
+
+        Person student5 = new Student("Luciano", "Schmidt");
+        System.out.println(((Student)student5).getId());
+        System.out.println(student5.info());
+
 
         System.out.println("Es wurden " + Student.getAnzahl() + " Studenten angelegt.");
 

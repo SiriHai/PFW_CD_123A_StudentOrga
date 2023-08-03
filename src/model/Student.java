@@ -6,14 +6,13 @@ package model;
  * @author Iris Hanheide
  */
 
-public class Student {
+public class Student extends Person {
     private static final int FIRST_ID = 1001;
     private static final int LAST_ID = 9999;
 
     private static int anzahl;
     private static int nextId = FIRST_ID;
 
-    private String name;
     private int id;
 
     public static int getNextId() {
@@ -34,13 +33,14 @@ public class Student {
         anzahl++;
     }
 
-    public Student(String name) {
+    public Student(String firstName, String lastName) {
         this();
-        this.name = name;
+        super.setName(firstName, lastName);
     }
 
-    public Student(String name, int id) {
-        this.name = name;
+    public Student(String firstName, String lastName, int birth, int id) {
+        this(firstName, lastName);
+        super.setBirth(birth);
         this.id = id;
         anzahl++;
     }
@@ -61,21 +61,8 @@ public class Student {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    // Überladen einer Methode
-    public void setName(String firstName, String lastName) {
-        this.name = firstName + " " + lastName;
-    }
-
     public String info() {
-        return "Name: " + name + " Id: " + id;
+        return "Student Id: " + id + " " + super.info();
     }
 
     public static void main(String[] args) throws Exception {
@@ -83,14 +70,14 @@ public class Student {
         // den Zugriff auf Attribute die "Punktnotation" verwendet werden,
         // obwohl die Attribute den Modifizierer "private" haben.
         Student student1 = new Student();
-        student1.name = "Nathan Evans";
+        student1.setName("Nathan", "Evans");
         student1.id = 1001;
 
         Student student2 = new Student();
-        student2.name = "Miksu Macloud";
+        student2.setName("Miksu", "Macloud");
         student2.id = 1002;
 
-        System.out.println("Name: " + student1.name + " Id: " + student1.id);
+        System.out.println("Name: " + student1.getName() + " Id: " + student1.id);
         System.out.println(student2.info());
     }
 }

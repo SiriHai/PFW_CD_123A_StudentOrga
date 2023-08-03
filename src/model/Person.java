@@ -61,6 +61,15 @@ public class Person {
         this.birth = birth;
     }
 
+    public String getName() {
+        return firstName + " " + lastName;
+    }
+
+    public void setName(String firstName, String lastName){
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public String info() {
         return "firstname: " + firstName + " lastName: " + lastName + " birth: " + birth;
     }
