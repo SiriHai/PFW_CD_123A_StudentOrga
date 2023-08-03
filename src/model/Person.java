@@ -12,9 +12,9 @@ public class Person {
         this.lastName = lastName;
     }
 
-    public Person(String firstName, String lastName, int geburtsjahr) {
+    public Person(String firstName, String lastName, int birth) {
         this(firstName, lastName);
-        this.birth = geburtsjahr;
+        this.birth = birth;
     }
 
     // neue Methode Aufgabe 1
