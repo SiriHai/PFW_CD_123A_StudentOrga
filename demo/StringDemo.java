@@ -14,7 +14,6 @@ public class StringDemo {
         String s3 = null;
         
         System.out.println(s1 == s2); // true
-        System.out.println(s1a == s2a); // true
         System.out.println(s1a == s2a); // false
         System.out.println(s1 == s1a); // false
         System.out.println(s1.equals(s1a)); // true

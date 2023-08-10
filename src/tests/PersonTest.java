@@ -3,7 +3,7 @@ package tests;
 import model.Person;
 
 /**
- * Demo-Programm für Student
+ * Demo-Programm für Person
  * 
  * @author Iris Hanheide
  */
@@ -24,6 +24,13 @@ public class PersonTest {
 
         Person person3 = new Person("Ed", "Sheeran", 1991, "Halifax");
         System.out.println(person3.info());
+
+        Person person4 = new Person("Ed", "Sheeran", 1991, "Halifax");
+
+        System.out.println(person3 == person4);
+        System.out.println(person3.equals(person4));
+        System.out.println(person3.toString());
+        System.out.println(Integer.toHexString(person3.hashCode()));
     }
 
 }
