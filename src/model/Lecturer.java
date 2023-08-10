@@ -20,8 +20,9 @@ public class Lecturer extends Person {
         super(firstName, lastName, birth, city);
     }
 
-    public String info() {
-        return "Lecturer " + super.info();
+    @Override
+    public String toString() {
+        return super.toString() + " Lecturer []";
     }
 
 }

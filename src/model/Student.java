@@ -96,9 +96,31 @@ public class Student extends Person {
         student.subject = System.console().readLine();
     }
 
-    public String info() {
-        return "Student Id: " + id + " subject " + subject + " " + super.info();
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!super.equals(obj))
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Student other = (Student) obj;
+        if (id != other.id)
+            return false;
+        if (subject == null) {
+            if (other.subject != null)
+                return false;
+        } else if (!subject.equals(other.subject))
+            return false;
+        return true;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " Student [id=" + id + ", subject=" + subject + "]";
+    }
+
+
 
     public static void main(String[] args) throws Exception {
         // wir befinden uns in derselben Datei, deshalb kann für
@@ -113,6 +135,6 @@ public class Student extends Person {
         student2.id = 1002;
 
         System.out.println("Name: " + student1.getName() + " Id: " + student1.id);
-        System.out.println(student2.info());
+        System.out.println(student2);
     }
 }
