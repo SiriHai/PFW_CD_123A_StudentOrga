@@ -1,5 +1,8 @@
 package modelaccount;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
 /**
  * Ü5: Aufgabe 2.1
  * Account: Elternklasse
@@ -19,8 +22,8 @@ public class Account {
     private double saldo;
 
     private static int calcCheckDigit(int country, int codeNumber, long accountNo) {
-        int checkDigit = (int) (accountNo % 13);
-        return 13 - checkDigit;
+        BigInteger checkDigit = new BigInteger(String.format("%2d%010d%2d00", CODE_NUMBER, accountNo, country));
+        return 98 - checkDigit.mod(new BigInteger("97")).intValue();
     }
 
     protected void makeIban(String countryCode, int codeNumber, long accountNo) {
