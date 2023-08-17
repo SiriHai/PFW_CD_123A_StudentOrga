@@ -8,17 +8,41 @@ package modelaccount;
  */
 
 public class Account {
+    private static final String COUNTRY_CODE = "DE";
+    private static final int COUNTRY = 1314;
+    private static final int CODE_NUMBER = 30050110;
+
     private long accountNo;
 
     private String iban;
     private String owner;
     private double saldo;
 
+    private static int calcCheckDigit(int country, int codeNumber, long accountNo) {
+        int checkDigit = (int) (accountNo % 13);
+        return 13 - checkDigit;
+    }
+
+    protected void makeIban(String countryCode, int codeNumber, long accountNo) {
+        int country = 0;
+        if (countryCode.equals("DE"))
+            country = COUNTRY;
+        
+        int pruef = calcCheckDigit(country, codeNumber, accountNo);
+        this.iban = String.format("%s%02d%08d%010d",countryCode, pruef, codeNumber, accountNo);
+
+    }
+
+    public static boolean checkIban(String iban) {
+        return false;
+
+    }
+
     // Konstruktoren
     // Jedes Konto soll mindestens einen Owner und eine Kontonummer haben,
     // deshalb verzichte ich auf den Standardkonstruktor von außen
     protected Account() {
-        
+
     }
 
     public Account(String owner) {
@@ -62,6 +86,7 @@ public class Account {
 
     public void setAccountNo(long accountNo) {
         this.accountNo = accountNo;
+        makeIban(COUNTRY_CODE, CODE_NUMBER, accountNo);
     }
 
     @Override
@@ -127,6 +152,12 @@ public class Account {
     public void bookNeg() {
         System.out.print("Wie viel soll abgehoben werden? ");
         bookNeg(Double.parseDouble(System.console().readLine()));
+    }
+
+    public static void main(String[] args) {
+        Account a1 = new Account("Iris");
+        a1.makeIban("DE", CODE_NUMBER,1122334400);
+        System.out.println((a1.iban));
     }
 
 }
