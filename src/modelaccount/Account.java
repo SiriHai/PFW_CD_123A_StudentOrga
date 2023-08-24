@@ -29,15 +29,25 @@ public class Account {
         int country = 0;
         if (countryCode.equals("DE"))
             country = COUNTRY;
-        
+
         int pruef = calcCheckDigit(country, codeNumber, accountNo);
-        this.iban = String.format("%s%02d%08d%010d",countryCode, pruef, codeNumber, accountNo);
+        this.iban = String.format("%s%02d%08d%010d", countryCode, pruef, codeNumber, accountNo);
 
     }
 
     public static boolean checkIban(String iban) {
-        return false;
+        String codeNumber = iban.substring(4, 12);
+        long accountNo = Long.parseLong(iban.substring(12, 22));
+        String countryCode = iban.substring(0, 2);
+        int country = 0;
+        if (countryCode.equals(COUNTRY_CODE))
+            country = COUNTRY;
 
+        String pruef = iban.substring(2, 4);
+
+        String check = String.format("%s%010d%s%s", codeNumber, accountNo, country, pruef);
+
+        return new BigInteger(check).mod(new BigInteger("97")).intValue() == 1;
     }
 
     // Konstruktoren
@@ -158,7 +168,7 @@ public class Account {
 
     public static void main(String[] args) {
         Account a1 = new Account("Iris");
-        a1.makeIban("DE", CODE_NUMBER,1122334400);
+        a1.makeIban("DE", CODE_NUMBER, 1122334400);
         System.out.println((a1.iban));
     }
 
