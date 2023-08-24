@@ -15,12 +15,12 @@ public class CheckingAccount extends Account {
     private double overdraftAmount; // Überziehungsrahmen
 
     // Kontonummer erzeugen
-    private void makeNewAccountNo() {
+    protected long getNextAccountNo() {
         if (nextNo <= LAST_NO) {
-            super.setAccountNo(nextNo++);
+            return nextNo++;
         } else {
             System.out.println("Nummernbereich überschritten");
-            super.setAccountNo(MISTAKE_NO);
+            return MISTAKE_NO;
         }
     }
 
@@ -30,12 +30,10 @@ public class CheckingAccount extends Account {
 
     public CheckingAccount(String owner) {
         super(owner);
-        makeNewAccountNo();
     }
 
     public CheckingAccount(String owner, double saldo) {
         super(owner, saldo);
-        makeNewAccountNo();
     }
 
     public CheckingAccount(String owner, double saldo, double overdraftAmount) {

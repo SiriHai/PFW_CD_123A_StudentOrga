@@ -9,7 +9,7 @@ import java.math.BigInteger;
  * @author Iris Hanheide
  */
 
-public class Account {
+public abstract class Account {
     private static final String COUNTRY_CODE = "DE";
     private static final int COUNTRY = 1314;
     private static final int CODE_NUMBER = 30050110;
@@ -19,6 +19,11 @@ public class Account {
     private String iban;
     private String owner;
     private double saldo;
+
+    protected abstract long getNextAccountNo();
+    private void makeNewAccountNo() {
+        setAccountNo(getNextAccountNo());
+    }
 
     private static int calcCheckDigit(int country, int codeNumber, long accountNo) {
         BigInteger checkDigit = new BigInteger(String.format("%2d%010d%2d00", CODE_NUMBER, accountNo, country));
@@ -54,7 +59,7 @@ public class Account {
     // Jedes Konto soll mindestens einen Owner und eine Kontonummer haben,
     // deshalb verzichte ich auf den Standardkonstruktor von außen
     protected Account() {
-
+        makeNewAccountNo();
     }
 
     public Account(String owner) {
@@ -167,7 +172,7 @@ public class Account {
     }
 
     public static void main(String[] args) {
-        Account a1 = new Account("Iris");
+        Account a1 = new SavingsAccount("Iris");
         a1.makeIban("DE", CODE_NUMBER, 1122334400);
         System.out.println((a1.iban));
     }

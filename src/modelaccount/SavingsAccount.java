@@ -10,12 +10,12 @@ public class SavingsAccount extends Account {
     private float interest; // Zinsen
 
     // Kontonummer erzeugen
-    private void makeNewAccountNo() {
+    protected long getNextAccountNo() {
         if (nextNo <= LAST_NO) {
-            super.setAccountNo(nextNo++);
+            return nextNo++;
         } else {
             System.out.println("Nummernbereich überschritten");
-            super.setAccountNo(MISTAKE_NO);
+            return MISTAKE_NO;
         }
     }
 
@@ -25,12 +25,10 @@ public class SavingsAccount extends Account {
 
     public SavingsAccount(String owner) {
         super(owner);
-        makeNewAccountNo();
     }
 
     public SavingsAccount(String owner, double saldo) {
         super(owner, saldo);
-        makeNewAccountNo();
     }
 
     public SavingsAccount(String owner, double saldo, float interest) {

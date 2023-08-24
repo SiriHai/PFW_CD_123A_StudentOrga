@@ -20,17 +20,17 @@ public class AccountTest {
         // Konstruktor: owner, saldo, overdraftAmount
         CheckingAccount g1 = new CheckingAccount("Iris Hanheide", 1000, 2000);
         System.out.println(g1.toString());
-        // System.out.println("Check Iban: " + Account.checkIban(g1.getIban()) + "\n");
+        System.out.println("Check Iban: " + Account.checkIban(g1.getIban()) + "\n");
 
         CheckingAccount g2 = new CheckingAccount("Udo Lindenberg", 10000, 20000);
         System.out.println(g2.toString());
-        // System.out.println("Check Iban: " + Account.checkIban(g2.getIban()) + "\n");
+        System.out.println("Check Iban: " + Account.checkIban(g2.getIban()) + "\n");
 
         // Konstruktor: owner, Saldo, interest
         SavingsAccount sb1 = new SavingsAccount("Iris Hanheide", 10000, 2);
         sb1.setTransactionLimit(1000);
         System.out.println(sb1);
-        // System.out.println("Check Iban: " + Account.checkIban(sb1.getIban()) + "\n");
+        System.out.println("Check Iban: " + Account.checkIban(sb1.getIban()) + "\n");
 
         SavingsAccount.setNextNo(3_000_000_000L);
 
@@ -43,8 +43,8 @@ public class AccountTest {
 
         sb3.setAccountNo(1122334400L);
         System.out.println(sb3.toString());
-        // System.out.println("Check Iban : " + sb3.getIban() + ": " +
-        // Account.checkIban(sb3.getIban()) + "\n");
+        System.out.println("Check Iban : " + sb3.getIban() + ": " +
+        Account.checkIban(sb3.getIban()) + "\n");
 
         System.out.println("Buchungen für " + sb1.getOwner() + " " + sb1.getClass());
         System.out.println("Saldo: " + sb1.getSaldo());
