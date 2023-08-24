@@ -3,9 +3,18 @@ package model;
 // Lecturer im Projekt StudentOrg
 // @autor Iris Hanheide
 
-public class Lecturer extends Person {
+public class Lecturer extends Person implements Employee {
+    private int persNo;
     
     public Lecturer() {
+    }
+
+    public int getPersNo() {
+        return persNo;
+    }
+
+    public void setPersNo(int persNo) {
+        this.persNo = persNo;
     }
 
     public Lecturer(String firstName, String lastName) {
@@ -28,6 +37,11 @@ public class Lecturer extends Person {
     @Override
     protected void newInput() {
         System.out.println("New Lecturer ");
+    }
+
+    @Override
+    public String getFunction() {
+        return "lecturer";
     }
 
 }
