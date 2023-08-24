@@ -25,4 +25,9 @@ public class Lecturer extends Person {
         return super.toString() + " Lecturer []";
     }
 
+    @Override
+    protected void newInput() {
+        System.out.println("New Lecturer ");
+    }
+
 }

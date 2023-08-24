@@ -1,10 +1,12 @@
 package model;
 
-public class Person {
+public abstract class Person {
     private String firstName, lastName;
     private int birth;
     // Aufgabe 1
     private String city;
+
+    protected abstract void newInput();
 
     public Person() {
     }

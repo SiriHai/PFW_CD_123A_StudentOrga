@@ -26,8 +26,8 @@ public class Staff extends Person {
     }
 
     @Override
-    public void newInputDialogue() {
-        super.newInputDialogue();
+    public void newInput() {
+        System.out.println("New Staff");
 
         System.out.print("Funktion: ");
         function = System.console().readLine();

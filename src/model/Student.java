@@ -48,7 +48,7 @@ public class Student extends Person {
 
     public Student(String firstName, String lastName, int birth, String city, String subject) {
         this(firstName, lastName, birth, city);
-        super.setCity(subject);
+        this.subject = subject;
     }
 
     public Student(String firstName, String lastName, int birth, int id) {
@@ -83,8 +83,8 @@ public class Student extends Person {
     }
 
     @Override
-    public void newInputDialogue(){
-        super.newInputDialogue();
+    public void newInput(){
+        System.out.println("New Student");
         System.out.print("subject: ");
         subject = System.console().readLine();
     }

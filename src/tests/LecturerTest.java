@@ -23,9 +23,6 @@ public class LecturerTest {
 
         Person lect4 = new Lecturer("Volkert", "Stefan", 1972, "Lüttin");
         System.out.println(lect4);
-
-        Person person4 = new Person("Volkert", "Stefan", 1972, "Lüttin");
-        System.out.println(person4);
     }
 
 }
