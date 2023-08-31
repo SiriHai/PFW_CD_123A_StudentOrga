@@ -1,5 +1,7 @@
 package tests;
 
+import model.Lecturer;
+import model.Staff;
 import modelaccount.*;
 
 /**
@@ -8,7 +10,7 @@ import modelaccount.*;
  * @author Iris Hanheide
  */
 
-public class AccountTest {
+public class AccountTest implements Locations {
     public static void main(String[] args) throws Exception {
         System.out.println("\nHello, Account!\n");
 
@@ -21,6 +23,15 @@ public class AccountTest {
         CheckingAccount g1 = new CheckingAccount("Iris Hanheide", 1000, 2000);
         System.out.println(g1.toString());
         System.out.println("Check Iban: " + Account.checkIban(g1.getIban()) + "\n");
+
+        Lecturer lect1 = new Lecturer("Iris", "Hanheide", 0, LOC1, g1);
+        System.out.println(lect1);
+        System.out.println(lect1.getAccount().getAccountNo());
+
+        Staff staff1 = new Staff("Heike", "Casper", 0, LOC2, new SavingsAccount("Heike Casper"),
+                "Administration");
+        System.out.println(staff1);
+        System.out.println(staff1.getAccount().getIban());
 
         CheckingAccount g2 = new CheckingAccount("Udo Lindenberg", 10000, 20000);
         System.out.println(g2.toString());
@@ -44,7 +55,7 @@ public class AccountTest {
         sb3.setAccountNo(1122334400L);
         System.out.println(sb3.toString());
         System.out.println("Check Iban : " + sb3.getIban() + ": " +
-        Account.checkIban(sb3.getIban()) + "\n");
+                Account.checkIban(sb3.getIban()) + "\n");
 
         System.out.println("Buchungen für " + sb1.getOwner() + " " + sb1.getClass());
         System.out.println("Saldo: " + sb1.getSaldo());

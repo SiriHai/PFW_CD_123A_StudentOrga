@@ -1,10 +1,12 @@
 package model;
 
+import modelaccount.Account;
+
 public abstract class Person {
     private String firstName, lastName;
     private int birth;
-    // Aufgabe 1
-    private String city;
+    private Location residence;
+    private Account account;
 
     protected abstract void newInput();
 
@@ -21,9 +23,14 @@ public abstract class Person {
         this.birth = birth;
     }
 
-     public Person(String firstName, String lastName, int birth, String city) {
+    public Person(String firstName, String lastName, int birth, Location residence) {
         this(firstName, lastName, birth);
-        this.city = city;
+        this.residence = residence;
+    }
+
+    public Person(String firstName, String lastName, int birth, Location residence, Account account) {
+        this(firstName, lastName, birth, residence);
+        this.account = account;
     }
 
     // neue Methode Aufgabe 1
@@ -74,23 +81,31 @@ public abstract class Person {
         return firstName + " " + lastName;
     }
 
-    public void setName(String firstName, String lastName){
+    public void setName(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    public String getCity() {
-        return city;
+    public Location getResidence() {
+        return residence;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setResidence(Location residence) {
+        this.residence = residence;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
     @Override
     public String toString() {
-        return "Person [firstName=" + firstName + ", lastName=" + lastName + ", birth=" + birth + ", city=" + city
-                + "]";
+        return "Person [firstName=" + firstName + ", lastName=" + lastName + ", birth=" + birth + ", Residence=" + residence
+                + "\naccount:" + account + "]";
     }
 
     @Override
@@ -114,14 +129,17 @@ public abstract class Person {
             return false;
         if (birth != other.birth)
             return false;
-        if (city == null) {
-            if (other.city != null)
+        if (residence == null) {
+            if (other.residence != null)
                 return false;
-        } else if (!city.equals(other.city))
+        } else if (!residence.equals(other.residence))
+            return false;
+        if (account == null) {
+            if (other.account != null)
+                return false;
+        } else if (!account.equals(other.account))
             return false;
         return true;
     }
-
-    
 
 }

@@ -1,5 +1,7 @@
 package model;
 
+import modelaccount.Account;
+
 public class Staff extends Person implements Employee {
 
     private String function;
@@ -15,6 +17,11 @@ public class Staff extends Person implements Employee {
 
     public Staff(String firstName, String lastName, String function) {
         super(firstName, lastName);
+        this.function = function;
+    }
+
+    public Staff(String firstName, String lastName, int birth, Location residence, Account account, String function) {
+        super(firstName, lastName, birth, residence, account);
         this.function = function;
     }
 

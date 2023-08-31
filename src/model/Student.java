@@ -1,5 +1,7 @@
 package model;
 
+import modelaccount.Account;
+
 /**
  * Programmaufbau
  * 
@@ -40,15 +42,20 @@ public class Student extends Person {
     }
 
     // Aufgabe 1
-    public Student(String firstName, String lastName, int birth, String city) {
+    public Student(String firstName, String lastName, int birth, Location residence) {
         this(firstName, lastName);
         super.setBirth(birth);
-        super.setCity(city);
+        super.setResidence(residence);
     }
 
-    public Student(String firstName, String lastName, int birth, String city, String subject) {
-        this(firstName, lastName, birth, city);
+    public Student(String firstName, String lastName, int birth, Location residence, String subject) {
+        this(firstName, lastName, birth, residence);
         this.subject = subject;
+    }
+
+    public Student(String firstName, String lastName, int birth, Location residence, Account account, String subject) {
+        this(firstName, lastName, birth, residence, subject);
+        super.setAccount(account);
     }
 
     public Student(String firstName, String lastName, int birth, int id) {
