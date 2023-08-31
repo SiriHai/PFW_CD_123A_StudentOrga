@@ -27,7 +27,7 @@ public class StudentsDemo {
         students.remove(student2);
 
         students.add(new Student("Orlando", "Bloom", 1977, fhdw1));
-        // students.remove("Orlando", "Bloom");
+        students.remove("Orlando", "Bloom");
         students.print();
     }
 
