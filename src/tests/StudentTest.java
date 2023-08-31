@@ -9,7 +9,7 @@ import model.Student;
  * @author Iris Hanheide
  */
 
-public class StudentTest {
+public class StudentTest implements Locations {
     public static void main(String[] args) throws Exception {
         Student student1 = new Student();
         // student1.setName("Nathan Evans");
@@ -48,7 +48,7 @@ public class StudentTest {
         System.out.println(student5);
 
         // City und Subject
-        Student student6 = new Student("Phil", "Collins", 1951, "London", "WI");
+        Student student6 = new Student("Phil", "Collins", 1951, LOC2, "WI");
         System.out.println(student6);
 
         System.out.println("Es wurden " + Student.getAnzahl() + " Studenten angelegt.");

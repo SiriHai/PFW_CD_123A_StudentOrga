@@ -2,7 +2,7 @@ package tests;
 
 import model.*;
 
-public class LecturerTest {
+public class LecturerTest implements Locations {
     public static void main(String[] args) {
 
         Lecturer lect1 = new Lecturer("Liese", "Prysselius");
@@ -21,7 +21,7 @@ public class LecturerTest {
         //Lecturer.newInputDialogue(lect3);
         System.out.println(lect3);
 
-        Person lect4 = new Lecturer("Volkert", "Stefan", 1972, "Lüttin");
+        Person lect4 = new Lecturer("Volkert", "Stefan", 1972, LOC1);
         System.out.println(lect4);
     }
 
