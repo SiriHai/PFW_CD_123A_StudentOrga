@@ -1,12 +1,12 @@
 package demo;
 
-//import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.ArrayList;
+//import java.util.LinkedList;
 
 public class MyBag {
     public static void main(String[] args) throws Exception {
-        //ArrayList<String> myBag = new ArrayList<>(10);
-        LinkedList<String> myBag = new LinkedList<>();
+        ArrayList<String> myBag = new ArrayList<>(10);
+        //LinkedList<String> myBag = new LinkedList<>();
 
         myBag.add("pen");
         myBag.add("pencil");
