@@ -1,8 +1,6 @@
 package tests;
 
-import model.Location;
-import model.Student;
-import model.Students;
+import model.*;
 
 public class StudentsDemo {
 
@@ -18,7 +16,7 @@ public class StudentsDemo {
         System.out.println(student3);
         System.out.println(student4);
         
-        Students students = new Students(100);
+        Things<Student> students = new Things<>(100);
         students.add(student1);
         students.add(student2);
         students.add(student3);
