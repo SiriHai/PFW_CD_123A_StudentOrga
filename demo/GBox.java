@@ -11,7 +11,7 @@ public class GBox<T> {
         return value;
     }
 
-    public void setValue1(T value) {
+    public void setValue(T value) {
         this.value = value;
     }
 
@@ -23,7 +23,7 @@ public class GBox<T> {
         GBox<Integer> gbox2 = new GBox<>(42);
         System.out.println(gbox2.getValue() + 1);
         
-        gbox.setValue1("47");
+        gbox.setValue("47");
 
         System.out.println(gbox.getValue());
     }
