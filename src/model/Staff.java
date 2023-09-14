@@ -4,7 +4,7 @@ import modelaccount.Account;
 
 public class Staff extends Person implements Employee {
 
-    private String function;
+    private Function function;
     int persNo;
 
     public Staff() {
@@ -15,22 +15,22 @@ public class Staff extends Person implements Employee {
         super(firstName, lastName);
     }
 
-    public Staff(String firstName, String lastName, String function) {
+    public Staff(String firstName, String lastName, Function function) {
         super(firstName, lastName);
         this.function = function;
     }
 
-    public Staff(String firstName, String lastName, int birth, Location residence, Account account, String function) {
+    public Staff(String firstName, String lastName, int birth, Location residence, Account account, Function function) {
         super(firstName, lastName, birth, residence, account);
         this.function = function;
     }
 
     @Override
     public String getFunction() {
-        return function;
+        return function.toString();
     }
 
-    public void setFunction(String function) {
+    public void setFunction(Function function) {
         this.function = function;
     }
 
@@ -39,13 +39,13 @@ public class Staff extends Person implements Employee {
         System.out.println("New Staff");
 
         System.out.print("Funktion: ");
-        function = System.console().readLine();
+        function = Function.parseFunction(System.console().readLine());
     }
 
     public static void newInputDialogue(Staff staff) {
         Person.newInputDialogue(staff);
         System.out.print("Funktion: ");
-        staff.function = System.console().readLine();
+        staff.function = Function.parseFunction(System.console().readLine());
     }
 
     @Override

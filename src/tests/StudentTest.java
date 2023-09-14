@@ -1,7 +1,6 @@
 package tests;
 
-import model.Person;
-import model.Student;
+import model.*;
 
 /**
  * Prüfen der Student-Klasse
@@ -48,7 +47,7 @@ public class StudentTest implements Locations {
         System.out.println(student5);
 
         // City und Subject
-        Student student6 = new Student("Phil", "Collins", 1951, LOC2, "WI");
+        Student student6 = new Student("Phil", "Collins", 1951, LOC2, Subject.parseSubject("WI"));
         System.out.println(student6);
 
         System.out.println("Es wurden " + Student.getAnzahl() + " Studenten angelegt.");

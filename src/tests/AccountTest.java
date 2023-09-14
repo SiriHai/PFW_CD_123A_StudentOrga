@@ -1,9 +1,7 @@
 package tests;
 
-import model.Lecturer;
-import model.Staff;
+import model.*;
 import modelaccount.*;
-
 /**
  * AccountCtr: verwendet Account
  * 
@@ -29,7 +27,7 @@ public class AccountTest implements Locations {
         System.out.println(lect1.getAccount().getAccountNo());
 
         Staff staff1 = new Staff("Heike", "Casper", 0, LOC2, new SavingsAccount("Heike Casper"),
-                "Administration");
+                Function.parseFunction("Administration"));
         System.out.println(staff1);
         System.out.println(staff1.getAccount().getIban());
 

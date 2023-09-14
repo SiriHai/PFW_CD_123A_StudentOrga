@@ -16,7 +16,7 @@ public class Student extends Person {
     private static int nextId = FIRST_ID;
 
     private int id;
-    private String subject;
+    private Subject subject;
 
     public static int getNextId() {
         return nextId;
@@ -48,12 +48,12 @@ public class Student extends Person {
         super.setResidence(residence);
     }
 
-    public Student(String firstName, String lastName, int birth, Location residence, String subject) {
+    public Student(String firstName, String lastName, int birth, Location residence, Subject subject) {
         this(firstName, lastName, birth, residence);
         this.subject = subject;
     }
 
-    public Student(String firstName, String lastName, int birth, Location residence, Account account, String subject) {
+    public Student(String firstName, String lastName, int birth, Location residence, Account account, Subject subject) {
         this(firstName, lastName, birth, residence, subject);
         super.setAccount(account);
     }
@@ -81,11 +81,11 @@ public class Student extends Person {
         this.id = id;
     }
 
-    public String getSubject() {
+    public Subject getSubject() {
         return subject;
     }
 
-    public void setSubject(String subject) {
+    public void setSubject(Subject subject) {
         this.subject = subject;
     }
 
@@ -93,14 +93,14 @@ public class Student extends Person {
     public void newInput(){
         System.out.println("New Student");
         System.out.print("subject: ");
-        subject = System.console().readLine();
+        subject = Subject.parseSubject(System.console().readLine());
     }
 
     // Die Methode wird überladen
     public static void newInputDialogue(Student student){
         Person.newInputDialogue(student);
         System.out.print("subject: ");
-        student.subject = System.console().readLine();
+        student.subject = Subject.parseSubject(System.console().readLine());
     }
 
     @Override
