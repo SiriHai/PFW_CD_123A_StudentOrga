@@ -23,5 +23,11 @@ public class Ampeldemo {
 
         System.out.println("Farbe für Achtung: " + Ampelfarbe.parseAmpelfarbe("Achtung").name());
         System.out.println("Farbe für Stopp: " + Ampelfarbe.parseAmpelfarbe("Stopp").name());
+
+		System.out.println();
+
+		for (String s: Ampelfarbe.getStrings()){
+			System.out.println(s);
+		}
 	}
 }
